@@ -1,12 +1,11 @@
 "use strict";
 
-//describe("determineIfPositiveNegativeOrZero", function () {
+//create methods using jasmine.
+//create a function to test removeItemFromInventory
+//addItemBackToInventory
+//addMoneyToMachine
+//performTransaction
 
-//   it("returns 1 if the value passed in is greater than 0", function () {
-
-//     let result = determineIfPositiveNegativeOrZero(100);
-//     expect(result).toBe(1); //matcher
-//   });
 
 describe("calculateReturnChange", function() {
   let vendingMachine;
@@ -19,36 +18,39 @@ describe("calculateReturnChange", function() {
 
     let equalChange = vendingMachine.calculateReturnChange(.5, .5);
     expect(equalChange).toEqual(0); //matcher
-
-
-    it("if the change provided is inadequate", function(){
-
-      let candybars = vendingMachine.candyBars.length();
-    });
   });
-  
 
+    it("if the money provided is not enough", function(){
 
+      let equalChange = vendingMachine.calculateReturnChange(-.5, -.5);
+      expect(equalChange).toBe(-1);
+    });
 
+    it("If there is change to return", function(){
 
+      let equalChange = vendingMachine.calculateReturnChange(0, 0);
+      expect(equalChange).toBe(1);
+    });
+});
+ 
+describe("removeItemFromInventory", function(){
 
+  it("If the item to be removed is a candybar.", function() {
 
+    let candyBar = vendingMachine.candyBars(1 , 0);
+    expect(candyBars).toEqual(-1);
+  });
+  it("If the item to be removed is a bag of chips.", function() {
 
+    let bagChips = vendingMachine.bagsOfChips(1 , 0);
+    expect(equalChange).toEqual(-1);
+  });
 
+  it("If the item to be removed is a pack of gum.", function() {
 
-  // it("", function () {
-  //   //SPEC
-  //   let result = determineIfPositiveNegativeOrZero(100);
-
-  //   expect(result).toBe(1); //matcher
-  // });
-
-  // it("returns 1 if the value passed in is greater than 0", function () {
-  //   //SPEC
-  //   let result = determineIfPositiveNegativeOrZero(100);
-
-  //   expect(result).toBe(1); //matcher
-  // });
+    let bagChips = vendingMachine.packsOfGum(1 , 0);
+    expect(equalChange).toEqual(-1);
+  });
 });
 
 
